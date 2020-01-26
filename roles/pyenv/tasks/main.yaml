@@ -1,0 +1,24 @@
+- name: apt install packages for pyenv
+  apt:
+    name:
+      - build-essential
+      - libffi-dev
+      - libssl-dev
+      - zlib1g-dev
+      - libbz2-dev
+      - libreadline-dev
+      - libsqlite3-dev
+
+- name: clone pyenv
+  shell: if [ ! -d ~/.pyenv ]; then git clone https://github.com/pyenv/pyenv.git ~/.pyenv; else echo SKIP; fi
+  changed_when: false
+
+- name: copy .pyenvrc
+  copy:
+    src: ../files/.pyenvrc
+    dest: ~/
+    mode: 0755
+
+- name: edit .bashrc
+  shell: if [[ $(cat ~/.bashrc) != *pyenvrc* ]]; then echo "source ~/.pyenvrc" >> ~/.bashrc; else echo SKIP; fi
+  changed_when: false

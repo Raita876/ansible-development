@@ -1,0 +1,29 @@
+- name: apt update
+  apt:
+    update_cache: yes
+- name: apt install packages
+  apt:
+    state: latest
+    name:
+      - wget
+      - sudo
+      - tar
+      - zip
+      - unzip
+      - unzip
+      - bzip2
+      - tree
+      - git
+      - vim
+      - jq
+      - awscli
+      - zstd
+
+- name: copy vim setting file
+  copy:
+    src: "{{ item }}"
+    dest: ~/
+    mode: 0755
+  with_items:
+    - ../files/vim/.vimrc
+    - ../files/vim/.gvimrc
