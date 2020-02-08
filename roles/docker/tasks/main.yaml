@@ -22,3 +22,15 @@
   apt:
     name: docker-ce
     state: latest
+
+- name: edit groups of vagrant
+  user:
+    name: vagrant
+    groups: vagrant,docker
+
+- name: restart docker
+  systemd:
+    name: docker
+    state: restarted
+    daemon_reload: yes
+    enabled: yes
