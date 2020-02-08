@@ -10,15 +10,30 @@
       - libsqlite3-dev
 
 - name: clone pyenv
-  shell: if [ ! -d ~/.pyenv ]; then git clone https://github.com/pyenv/pyenv.git ~/.pyenv; else echo SKIP; fi
+  shell: |
+    if [ ! -d /home/vagrant/.pyenv ]; then 
+      git clone https://github.com/pyenv/pyenv.git /home/vagrant/.pyenv
+    else 
+      echo SKIP
+    fi
+
+    chown -R vagrant:vagrant /home/vagrant/.pyenv
+
   changed_when: false
 
 - name: copy .pyenvrc
   copy:
     src: ../files/.pyenvrc
-    dest: ~/
+    dest: /home/vagrant/
     mode: 0755
+    owner: vagrant
+    group: vagrant
 
 - name: edit .bashrc
-  shell: if [[ $(cat ~/.bashrc) != *pyenvrc* ]]; then echo "source ~/.pyenvrc" >> ~/.bashrc; else echo SKIP; fi
+  shell: |
+    if [[ $(cat /home/vagrant/.bashrc) != *pyenvrc* ]]; then 
+      echo "source /home/vagrant/.pyenvrc" >> /home/vagrant/.bashrc
+    else 
+      echo SKIP
+    fi
   changed_when: false

@@ -22,8 +22,10 @@
 - name: copy vim setting file
   copy:
     src: "{{ item }}"
-    dest: ~/
+    dest: /home/vagrant/
     mode: 0755
+    owner: vagrant
+    group: vagrant
   with_items:
     - ../files/vim/.vimrc
     - ../files/vim/.gvimrc
