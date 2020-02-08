@@ -18,6 +18,9 @@ if dein#load_state('~/.vim/dein')
   call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
   call dein#add('Shougo/vimshell', { 'rev' : '3787e5' })
 
+  " go plugins
+  call dein#add('fatih/vim-go')
+
   call dein#end()
   call dein#save_state()
 endif
@@ -116,3 +119,11 @@ endif
 
 noremap <S-h> ^
 noremap <S-l> $
+
+" ###################################################
+" Vim Go
+" ###################################################
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
