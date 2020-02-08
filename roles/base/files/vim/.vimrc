@@ -1,53 +1,38 @@
-" NeoBundle
+" dein.vim
 if &compatible
-  set nocompatible               " Be iMproved
+  set nocompatible
+endif
+" Add the dein installation directory into runtimepath
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+
+if dein#load_state('~/.vim/dein')
+  call dein#begin('~/.vim/dein')
+
+  call dein#add('~/.vim/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('tomasr/molokai')
+
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
+
+  call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+  call dein#add('Shougo/vimshell', { 'rev' : '3787e5' })
+
+  call dein#end()
+  call dein#save_state()
 endif
 
 " Required:
-set runtimepath+=/home/vagrant/.vim/bundle/neobundle.vim/
+filetype plugin indent on
+syntax enable
+colorscheme molokai
 
-" Required:
-call neobundle#begin(expand('/home/vagrant/.vim/bundle'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" Add or remove your Bundles here:
-" スニペット管理プラグイン
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-
-" カラースキーマ
-" NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'tomasr/molokai'
-
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-
-" You can specify revision/branch/tag.
-NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
+if dein#check_install()
+  call dein#install()
+endif
 
 noremap <Space>v :VimShellPop<CR>
 
-" Required:
-call neobundle#end()
-
-" Required:
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
 
 " setting
 " 文字コードをUFT-8に設定
@@ -82,8 +67,6 @@ set wildmode=list:longest
 nnoremap j gj
 nnoremap k gk
 
-syntax enable
-colorscheme molokai
 
 " Tab系
 " 不可視文字を可視化(タブが「▸-」と表示される)

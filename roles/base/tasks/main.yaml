@@ -27,10 +27,16 @@
     owner: "{{ user }}"
     group: "{{ user }}"
 
-- name: install neobundle
+- name: install dein.vim
   shell: |
-    curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > /var/tmp/install.sh
-    sh /var/tmp/install.sh
+    mkdir -p /home/vagrant/.vim
+    curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /var/tmp/install.sh
+    sh /var/tmp/install.sh /home/vagrant/.vim/dein
+
+    git clone https://github.com/tomasr/molokai.git /var/tmp/molokai
+    mv /var/tmp/molokai/colors /home/vagrant/.vim/
+
+    chown -R vagrant:vagrant /home/vagrant/.vim
 
 - name: copy bashrc
   copy:
