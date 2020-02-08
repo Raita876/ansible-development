@@ -23,9 +23,9 @@
     name: docker-ce
     state: latest
 
-- name: edit groups of vagrant
+- name: edit groups of {{ user }}
   user:
-    name: vagrant
+    name: "{{ user }}"
     groups: vagrant,docker
 
 - name: restart docker

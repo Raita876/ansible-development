@@ -3,6 +3,8 @@
   vars:
     ansible_become: yes
     ansible_become_method: sudo
+    user: vagrant
+    home_dir: /home/vagrant
   roles:
     - init
     - pyenv

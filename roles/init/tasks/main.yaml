@@ -22,10 +22,10 @@
 - name: copy vim setting file
   copy:
     src: "{{ item }}"
-    dest: /home/vagrant/
+    dest: "{{ home_dir }}"
     mode: 0644
-    owner: vagrant
-    group: vagrant
+    owner: "{{ user }}"
+    group: "{{ user }}"
   with_items:
     - ../files/vim/.vimrc
     - ../files/vim/.gvimrc
@@ -33,7 +33,7 @@
 - name: copy bashrc
   copy:
     src: ../files/bashrc/.bashrc
-    dest: /home/vagrant/
+    dest: "{{ home_dir }}"
     mode: 0644
-    owner: vagrant
-    group: vagrant
+    owner: "{{ user }}"
+    group: "{{ user }}"

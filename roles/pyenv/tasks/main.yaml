@@ -24,7 +24,7 @@
 - name: copy .pyenvrc
   copy:
     src: ../files/.pyenvrc
-    dest: /home/vagrant/
+    dest: /home/vagrant
     mode: 0644
     owner: vagrant
     group: vagrant
