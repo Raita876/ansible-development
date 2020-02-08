@@ -28,12 +28,3 @@
     mode: 0644
     owner: vagrant
     group: vagrant
-
-- name: edit .bashrc
-  shell: |
-    if [[ $(cat /home/vagrant/.bashrc) != *pyenvrc* ]]; then 
-      echo "source /home/vagrant/.pyenvrc" >> /home/vagrant/.bashrc
-    else 
-      echo SKIP
-    fi
-  changed_when: false
