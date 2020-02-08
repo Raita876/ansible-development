@@ -19,7 +19,7 @@ NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 
 " カラースキーマ
-NeoBundle 'flazz/vim-colorschemes'
+" NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'tomasr/molokai'
 
 NeoBundle 'tpope/vim-fugitive'
@@ -36,6 +36,8 @@ NeoBundle 'Shougo/vimproc.vim', {
 \     'unix' : 'gmake',
 \    },
 \ }
+
+noremap <Space>v :VimShellPop<CR>
 
 " Required:
 call neobundle#end()
@@ -128,3 +130,6 @@ if &term =~ "xterm"
 
     inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
 endif
+
+noremap <S-h> ^
+noremap <S-l> $
