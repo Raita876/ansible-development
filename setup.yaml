@@ -6,7 +6,7 @@
     user: vagrant
     home_dir: /home/vagrant
   roles:
-    - init
+    - base
     - pyenv
     - docker
     - go

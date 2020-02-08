@@ -27,6 +27,11 @@
     owner: "{{ user }}"
     group: "{{ user }}"
 
+- name: install neobundle
+  shell: |
+    curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > /var/tmp/install.sh
+    sh /var/tmp/install.sh
+
 - name: copy bashrc
   copy:
     src: ../files/bashrc/.bashrc
