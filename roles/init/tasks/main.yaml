@@ -23,9 +23,17 @@
   copy:
     src: "{{ item }}"
     dest: /home/vagrant/
-    mode: 0755
+    mode: 0644
     owner: vagrant
     group: vagrant
   with_items:
     - ../files/vim/.vimrc
     - ../files/vim/.gvimrc
+
+- name: copy bashrc
+  copy:
+    src: ../files/bashrc/.bashrc
+    dest: /home/vagrant/
+    mode: 0644
+    owner: vagrant
+    group: vagrant
