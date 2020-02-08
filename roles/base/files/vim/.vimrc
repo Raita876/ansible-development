@@ -18,12 +18,24 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 
+" カラースキーマ
+NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'tomasr/molokai'
+
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'flazz/vim-colorschemes'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 
 " Required:
 call neobundle#end()
@@ -68,8 +80,8 @@ set wildmode=list:longest
 nnoremap j gj
 nnoremap k gk
 
-syntax on
-colorscheme elflord
+syntax enable
+colorscheme molokai
 
 " Tab系
 " 不可視文字を可視化(タブが「▸-」と表示される)
