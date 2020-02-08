@@ -18,6 +18,7 @@
       - jq
       - awscli
       - zstd
+      - python3-pip
 
 - name: copy vim setting file
   copy:

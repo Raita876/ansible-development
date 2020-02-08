@@ -9,7 +9,7 @@ if dein#load_state('~/.vim/dein')
   call dein#begin('~/.vim/dein')
 
   call dein#add('~/.vim/dein/repos/github.com/Shougo/dein.vim')
-  call dein#add('Shougo/deoplete.nvim')
+
   call dein#add('tomasr/molokai')
 
   call dein#add('Shougo/neosnippet.vim')
@@ -21,9 +21,15 @@ if dein#load_state('~/.vim/dein')
   " go plugins
   call dein#add('fatih/vim-go')
 
+  call dein#add('roxma/nvim-yarp')
+  call dein#add('roxma/vim-hug-neovim-rpc')
+  call dein#add('Shougo/deoplete.nvim')
+
   call dein#end()
   call dein#save_state()
 endif
+
+let g:deoplete#enable_at_startup = 1
 
 " Required:
 filetype plugin indent on
