@@ -21,14 +21,11 @@
 
 - name: copy vim setting file
   copy:
-    src: "{{ item }}"
+    src: ../files/vim/.vimrc
     dest: "{{ home_dir }}"
     mode: 0644
     owner: "{{ user }}"
     group: "{{ user }}"
-  with_items:
-    - ../files/vim/.vimrc
-    - ../files/vim/.gvimrc
 
 - name: copy bashrc
   copy:
