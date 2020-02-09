@@ -20,6 +20,7 @@
       - zstd
       - python3-pip
       - xsel
+      - shellcheck
 
 - name: install pynvim
   pip:

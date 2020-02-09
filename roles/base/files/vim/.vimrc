@@ -17,6 +17,8 @@ if dein#load_state('~/.vim/dein')
 
   call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
   call dein#add('Shougo/vimshell', { 'rev' : '3787e5' })
+  call dein#add('preservim/nerdtree')
+  call dein#add('vim-syntastic/syntastic')
 
   " go plugins
   call dein#add('fatih/vim-go')
@@ -39,9 +41,6 @@ colorscheme molokai
 if dein#check_install()
   call dein#install()
 endif
-
-noremap <Space>v :VimShellPop<CR>
-
 
 " setting
 " 文字コードをUFT-8に設定
@@ -125,6 +124,13 @@ endif
 
 noremap <S-h> ^
 noremap <S-l> $
+
+if has("mouse") " Enable the use of the mouse in all modes
+  set mouse=a
+endif
+
+noremap <Space>v :VimShellPop<CR>
+noremap <Space>f :NERDTreeToggle<CR>
 
 " ###################################################
 " Vim Go
