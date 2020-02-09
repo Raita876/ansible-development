@@ -20,6 +20,12 @@
       - zstd
       - python3-pip
 
+- name: install pynvim
+  pip:
+    name: pynvim
+    executable: pip3
+    state: latest
+
 - name: copy vim setting file
   copy:
     src: ../files/vim/.vimrc
