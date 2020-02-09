@@ -19,6 +19,7 @@
       - awscli
       - zstd
       - python3-pip
+      - xsel
 
 - name: install pynvim
   pip:
@@ -52,3 +53,9 @@
     mode: 0644
     owner: "{{ user }}"
     group: "{{ user }}"
+
+- name: install goss
+  get_url:
+    url: https://github.com/aelsabbahy/goss/releases/download/v0.3.9/goss-linux-amd64
+    dest: /usr/local/bin/goss
+    mode: 0755
