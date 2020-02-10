@@ -21,6 +21,7 @@
       - python3-pip
       - xsel
       - shellcheck
+      - stress
 
 - name: install pynvim
   pip:

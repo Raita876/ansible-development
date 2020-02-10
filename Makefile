@@ -13,6 +13,10 @@ up:
 config:
 	vagrant ssh-config
 
+.PHONY: reload
+reload:
+	vagrant reload
+
 .PHONY: ping
 ping:
 	ansible -i ./hosts $(HOST) -m ping
