@@ -10,19 +10,42 @@ if dein#load_state('~/.vim/dein')
 
   call dein#add('~/.vim/dein/repos/github.com/Shougo/dein.vim')
 
+  " Molokai（カラースキーム）
   call dein#add('tomasr/molokai')
 
+  " スニペット管理
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
 
+  " Vim上でシェルが実行できる
   call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
   call dein#add('Shougo/vimshell', { 'rev' : '3787e5' })
+
+  " ファイルツリー
   call dein#add('preservim/nerdtree')
+
+  " 汎用シンタックスチェッカー
   call dein#add('vim-syntastic/syntastic')
+
+  " ファイル検索
+  call dein#add('ctrlpvim/ctrlp.vim')
+
+  " Git操作
+  call dein#add('tpope/vim-fugitive')
+
+  " 複数行コメントアウト
+  call dein#add('tpope/vim-commentary')
+
+  " ステータスバー
+  call dein#add('vim-airline/vim-airline')
+
+  " 対となる括弧を追加/削除してくれるプラグイン
+  call dein#add('jiangmiao/auto-pairs')
 
   " go plugins
   call dein#add('fatih/vim-go')
 
+  " コード補完
   call dein#add('roxma/nvim-yarp')
   call dein#add('roxma/vim-hug-neovim-rpc')
   call dein#add('Shougo/deoplete.nvim')
@@ -32,6 +55,7 @@ if dein#load_state('~/.vim/dein')
 endif
 
 let g:deoplete#enable_at_startup = 1
+let g:go_fmt_command = "goimports"
 
 " Required:
 filetype plugin indent on
@@ -62,7 +86,7 @@ set showcmd
 
 " 見た目系
 " 行番号を表示
-" set number
+set number
 " 行末の1文字先までカーソルを移動できるように
 set virtualedit=onemore
 " インデントはスマートインデント
