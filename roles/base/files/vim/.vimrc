@@ -42,6 +42,9 @@ if dein#load_state('~/.vim/dein')
   " 対となる括弧を追加/削除してくれるプラグイン
   call dein#add('jiangmiao/auto-pairs')
 
+  " markdownプレビュー
+  call dein#add('skanehira/preview-markdown.vim')
+
   " go plugins
   call dein#add('fatih/vim-go')
 
@@ -155,6 +158,17 @@ endif
 
 noremap <Space>v :VimShellPop<CR>
 noremap <Space>f :NERDTreeToggle<CR>
+
+" Indent width
+if has("autocmd")
+  "ファイルタイプの検索を有効にする
+  filetype plugin on
+  "ファイルタイプに合わせたインデントを利用
+  filetype indent on
+  "sw=softtabstop, sts=shiftwidth, ts=tabstop, et=expandtabの略
+  autocmd FileType yml        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType yaml        setlocal sw=2 sts=2 ts=2 et
+endif
 
 " ###################################################
 " Vim Go

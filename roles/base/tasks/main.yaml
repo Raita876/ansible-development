@@ -61,3 +61,9 @@
     url: https://github.com/aelsabbahy/goss/releases/download/v0.3.9/goss-linux-amd64
     dest: /usr/local/bin/goss
     mode: 0755
+
+- name: install mdr
+  get_url:
+    url: https://github.com/MichaelMure/mdr/releases/download/v0.2.4/mdr_linux_amd64
+    dest: /usr/local/bin/mdr
+    mode: 0755
