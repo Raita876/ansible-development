@@ -22,6 +22,8 @@
       - xsel
       - shellcheck
       - stress
+      - ansible
+      - build-essential
 
 - name: install pynvim
   pip:
