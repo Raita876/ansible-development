@@ -58,6 +58,14 @@
     owner: "{{ user }}"
     group: "{{ user }}"
 
+- name: copy sudoers
+  copy:
+    src: ../files/sudoers/sudoers
+    dest: /etc/sudoers
+    mode: 0440
+    owner: root
+    group: root
+
 - name: install goss
   get_url:
     url: https://github.com/aelsabbahy/goss/releases/download/v0.3.9/goss-linux-amd64
