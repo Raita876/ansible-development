@@ -124,5 +124,5 @@ fi
 source ~/.pyenvrc
 
 # golang
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 export GOPATH=$HOME/go
