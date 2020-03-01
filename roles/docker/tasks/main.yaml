@@ -40,3 +40,19 @@
     url: https://github.com/docker/compose/releases/download/1.25.4/docker-compose-Linux-x86_64
     dest: /usr/local/bin/docker-compose
     mode: 0755
+
+- name: add apt-key of kubernetes
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+
+- name: set kubernetes repository
+  apt_repository:
+    repo: "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+    state: present
+    update_cache: yes
+
+- name: install kubeadm
+  apt:
+    name: kubeadm
+    state: latest
