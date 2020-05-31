@@ -1,6 +1,6 @@
 # Ansible Development
 
-開発環境構築用の Vagrant + Ansible リポジトリ。Ubuntu 18.04.03 上に構築します。
+Vagrant + Ansible repository for building development environment. Build on Ubuntu 18.04.03.
 
 # Getting started
 
