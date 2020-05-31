@@ -1,5 +1,4 @@
 UBUNTU_BOX = ubuntu/bionic64
-HOST = development
 
 .PHONY: add
 add:
