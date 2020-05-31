@@ -4,4 +4,4 @@
     - base
     # - pyenv
     - docker
-    # - go
+    - go
