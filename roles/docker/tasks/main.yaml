@@ -39,7 +39,6 @@
   user:
     name: "{{ ansible_user_id }}"
     group: docker
-    append: yes
 
 - name: start docker
   become: yes
