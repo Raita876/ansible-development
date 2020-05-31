@@ -1,10 +1,13 @@
+---
 - name: download go
+  become: yes
   get_url:
-    url: https://dl.google.com/go/go1.13.7.linux-amd64.tar.gz
-    dest: /var/tmp/go1.13.7.linux-amd64.tar.gz
+    url: https://dl.google.com/go/go1.14.3.linux-amd64.tar.gz
+    dest: /var/tmp/go.linux-amd64.tar.gz
 
 - name: unarchive go.tar.gz
+  become: yes
   unarchive:
-    src: /var/tmp/go1.13.7.linux-amd64.tar.gz
+    src: /var/tmp/go.linux-amd64.tar.gz
     dest: /usr/local/
     remote_src: yes

@@ -1,5 +1,4 @@
 UBUNTU_BOX = ubuntu/bionic64
-HOST = development
 
 .PHONY: add
 add:
@@ -11,16 +10,13 @@ up:
 
 .PHONY: config
 config:
-	vagrant ssh-config
+	vagrant ssh-config --host=ubuntu
+	vagrant ssh-config --host=ubuntu　>> ~/.ssh/config
 
 .PHONY: reload
 reload:
 	vagrant reload
 
-.PHONY: ping
-ping:
-	ansible -i ./hosts $(HOST) -m ping
-
-.PHONY: playbook
-playbook:
-	ansible-playbook -i ./hosts -v ./setup.yaml
+.PHONY: provision
+provision:
+	vagrant provision

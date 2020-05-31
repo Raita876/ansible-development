@@ -57,11 +57,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    PS1='\[\033[01;32m\]\u:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    # PS1='${debian_chroot:+($debian_chroot)}\u@h:\w\$ '
-    PS1='\u:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -94,8 +92,6 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias vi='vim'
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -120,9 +116,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# pyenv
-source ~/.pyenvrc
+# Go
+export GOPATH="${HOME}/go"
+export PATH="${PATH}:${GOPATH}/bin:/usr/local/go/bin"
+export GO111MODULE="on"
 
-# golang
-export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
-export GOPATH=$HOME/go
+# Pyenv
+export PATH="${PATH}:${HOME}/.pyenv/bin"
+eval "$(pyenv init -)"
