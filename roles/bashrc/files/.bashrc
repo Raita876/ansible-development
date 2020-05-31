@@ -120,3 +120,7 @@ fi
 export GOPATH="${HOME}/go"
 export PATH="${PATH}:${GOPATH}/bin:/usr/local/go/bin"
 export GO111MODULE="on"
+
+# Pyenv
+export PATH="${PATH}:${HOME}/.pyenv/bin"
+eval "$(pyenv init -)"

@@ -34,3 +34,4 @@
     pyenv global {{ python_version }}
   environment:
     PYTHON_CONFIGURE_OPTS: --enable-shared
+    PATH: "{{ pyenv_root }}/bin:{{ ansible_env.PATH }}"
