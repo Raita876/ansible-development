@@ -2,7 +2,9 @@
 - hosts: all
   roles:
     - base
+    - bashrc
     - docker
+    - editorconfig
     - go
     - goss
-    - editorconfig
+    - python

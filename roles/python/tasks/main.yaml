@@ -1,0 +1,36 @@
+---
+- name: install packages
+  become: yes
+  apt:
+    state: present
+    name: "{{ packages }}"
+    update_cache: yes
+    cache_valid_time: "3600"
+  vars:
+    packages:
+      - build-essential
+      - libbz2-dev
+      - libdb-dev
+      - libreadline-dev
+      - libffi-dev
+      - libgdbm-dev
+      - liblzma-dev
+      - libncursesw5-dev
+      - libsqlite3-dev
+      - libssl-dev
+      - zlib1g-dev
+      - uuid-dev
+      - tk-dev
+
+- name: install pyenv
+  git:
+    repo: https://github.com/pyenv/pyenv.git
+    dest: "{{ pyenv_root }}"
+
+- name: install python
+  shell: |
+    eval "$(pyenv init -)"
+    pyenv install -s {{ python_version }}
+    pyenv global {{ python_version }}
+  environment:
+    PYTHON_CONFIGURE_OPTS: --enable-shared
