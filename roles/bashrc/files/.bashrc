@@ -124,3 +124,6 @@ export GO111MODULE="on"
 # Pyenv
 export PATH="${PATH}:${HOME}/.pyenv/bin"
 eval "$(pyenv init -)"
+
+# Rust
+. "${HOME}/.cargo/env"
