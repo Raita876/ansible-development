@@ -8,10 +8,9 @@ add:
 up:
 	vagrant up
 
-.PHONY: config
-config:
-	vagrant ssh-config --host=ubuntu
-	vagrant ssh-config --host=ubuntu　>> ~/.ssh/config
+.PHONY: down
+down:
+	vagrant halt
 
 .PHONY: reload
 reload:
@@ -20,3 +19,8 @@ reload:
 .PHONY: provision
 provision:
 	vagrant provision
+
+.PHONY: config
+config:
+	vagrant ssh-config --host=ubuntu
+	vagrant ssh-config --host=ubuntu　>> ~/.ssh/config
