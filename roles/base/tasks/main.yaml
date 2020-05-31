@@ -1,10 +1,12 @@
-- name: apt update
-  apt:
-    update_cache: yes
+---
 - name: apt install packages
+  become: yes
   apt:
-    state: latest
-    name:
+    state: present
+    name: "{{ item }}"
+    update_cache: yes
+    cache_valid_time: "3600"
+    with_items:
       - wget
       - sudo
       - tar
@@ -25,55 +27,9 @@
       - ansible
       - build-essential
 
-- name: install pynvim
-  pip:
-    name: pynvim
-    executable: pip3
-    state: latest
-
-- name: copy vim setting file
-  copy:
-    src: ../files/vim/.vimrc
-    dest: "{{ home_dir }}"
-    mode: 0644
-    owner: "{{ user }}"
-    group: "{{ user }}"
-
-- name: install dein.vim
-  shell: |
-    mkdir -p /home/vagrant/.vim
-    curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /var/tmp/install.sh
-    sh /var/tmp/install.sh /home/vagrant/.vim/dein
-
-    git clone https://github.com/tomasr/molokai.git /var/tmp/molokai
-    mv /var/tmp/molokai/colors /home/vagrant/.vim/
-
-    chown -R vagrant:vagrant /home/vagrant/.vim
-
-- name: copy bashrc
-  copy:
-    src: ../files/bashrc/.bashrc
-    dest: "{{ home_dir }}"
-    mode: 0644
-    owner: "{{ user }}"
-    group: "{{ user }}"
-
-- name: copy sudoers
-  copy:
-    src: ../files/sudoers/sudoers
-    dest: /etc/sudoers
-    mode: 0440
-    owner: root
-    group: root
-
 - name: install goss
+  become: yes
   get_url:
-    url: https://github.com/aelsabbahy/goss/releases/download/v0.3.9/goss-linux-amd64
+    url: https://github.com/aelsabbahy/goss/releases/download/v0.3.11/goss-linux-amd64
     dest: /usr/local/bin/goss
-    mode: 0755
-
-- name: install mdr
-  get_url:
-    url: https://github.com/MichaelMure/mdr/releases/download/v0.2.4/mdr_linux_amd64
-    dest: /usr/local/bin/mdr
     mode: 0755
