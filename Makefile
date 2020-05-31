@@ -23,5 +23,8 @@ provision: ## Provision by playbook
 
 .PHONY: config
 config: ## Setting ssh config of virtual machine
-	vagrant ssh-config --host=ubuntu
-	vagrant ssh-config --host=ubuntu　>> ~/.ssh/config
+	vagrant ssh-config --host=ubuntu | tee -a ~/.ssh/config
+
+.PHONY: help
+help: ## Display this help screen
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
