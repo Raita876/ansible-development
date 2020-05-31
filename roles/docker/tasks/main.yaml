@@ -3,8 +3,11 @@
   become: yes
   apt:
     state: present
-    name: "{{ item }}"
-    with_items:
+    name: "{{ packages }}"
+    update_cache: yes
+    cache_valid_time: "3600"
+  vars:
+    packages:
       - apt-transport-https
       - ca-certificates
       - curl
