@@ -3,10 +3,11 @@
   become: yes
   apt:
     state: present
-    name: "{{ item }}"
+    name: "{{ packages }}"
     update_cache: yes
     cache_valid_time: "3600"
-    with_items:
+  vars:
+    packages:
       - wget
       - sudo
       - tar
