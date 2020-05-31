@@ -9,7 +9,6 @@
   vars:
     packages:
       - wget
-      - sudo
       - tar
       - zip
       - unzip
@@ -21,9 +20,7 @@
       - jq
       - awscli
       - zstd
-      - python3-pip
       - xsel
       - shellcheck
       - stress
       - ansible
-      - build-essential
