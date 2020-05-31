@@ -1,6 +1,8 @@
+---
 - name: apt install packages
+  become: yes
   apt:
-    state: latest
+    state: present
     name:
       - apt-transport-https
       - ca-certificates
@@ -8,51 +10,42 @@
       - software-properties-common
 
 - name: apt-key add
+  become: yes
   apt_key:
     url: "https://download.docker.com/linux/ubuntu/gpg"
     state: present
 
-- name: set edge docker repository
+- name: set stable docker repository
+  become: yes
   apt_repository:
-    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_lsb.codename }} edge"
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
     state: present
-    update_cache: yes
 
 - name: install docker
+  become: yes
   apt:
     name: docker-ce
-    state: latest
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
 
-- name: edit groups of {{ user }}
+- name: add user to docker group
+  become: yes
   user:
-    name: "{{ user }}"
-    groups: vagrant,docker
+    name: "{{ ansible_user_id }}"
+    groups: docker
+    append: yes
 
-- name: restart docker
+- name: start docker
+  become: yes
   systemd:
     name: docker
-    state: restarted
-    daemon_reload: yes
+    state: started
     enabled: yes
 
 - name: download docker-compose
+  become: yes
   get_url:
     url: https://github.com/docker/compose/releases/download/1.25.4/docker-compose-Linux-x86_64
     dest: /usr/local/bin/docker-compose
     mode: 0755
-
-- name: add apt-key of kubernetes
-  apt_key:
-    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
-    state: present
-
-- name: set kubernetes repository
-  apt_repository:
-    repo: "deb http://apt.kubernetes.io/ kubernetes-xenial main"
-    state: present
-    update_cache: yes
-
-- name: install kubeadm
-  apt:
-    name: kubeadm
-    state: latest

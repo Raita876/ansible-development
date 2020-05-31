@@ -1,12 +1,7 @@
 ---
-- hosts: development
-  vars:
-    ansible_become: yes
-    ansible_become_method: sudo
-    user: vagrant
-    home_dir: /home/vagrant
+- hosts: all
   roles:
-    - base
-    - pyenv
+    # - base
+    # - pyenv
     - docker
-    - go
+    # - go
