@@ -16,11 +16,3 @@ config:
 .PHONY: reload
 reload:
 	vagrant reload
-
-.PHONY: ping
-ping:
-	ansible -i ./hosts $(HOST) -m ping
-
-.PHONY: playbook
-playbook:
-	ansible-playbook -i ./hosts -v ./setup.yaml
