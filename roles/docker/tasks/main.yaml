@@ -3,10 +3,12 @@
   become: yes
   apt:
     state: present
-    name:
+    name: "{{ item }}"
+    with_items:
       - apt-transport-https
       - ca-certificates
       - curl
+      - gnupg2
       - software-properties-common
 
 - name: apt-key add
@@ -27,13 +29,13 @@
     name: docker-ce
     state: present
     update_cache: yes
-    cache_valid_time: 3600
+    cache_valid_time: "3600"
 
 - name: add user to docker group
   become: yes
   user:
     name: "{{ ansible_user_id }}"
-    groups: docker
+    group: docker
     append: yes
 
 - name: start docker
