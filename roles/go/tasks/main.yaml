@@ -1,3 +1,4 @@
+---
 - name: download go
   become: yes
   get_url:

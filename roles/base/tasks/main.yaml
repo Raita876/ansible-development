@@ -28,13 +28,6 @@
       - ansible
       - build-essential
 
-- name: install goss
-  become: yes
-  get_url:
-    url: https://github.com/aelsabbahy/goss/releases/download/v0.3.11/goss-linux-amd64
-    dest: /usr/local/bin/goss
-    mode: 0755
-
 - name: copy bashrc
   become: yes
   copy:

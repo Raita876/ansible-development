@@ -2,6 +2,6 @@
 - hosts: all
   roles:
     - base
-    # - pyenv
     - docker
     - go
+    - goss
