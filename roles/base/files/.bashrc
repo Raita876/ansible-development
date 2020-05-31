@@ -115,3 +115,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Go
+export GOPATH="${HOME}/go"
+export PATH="${PATH}:${GOPATH}/bin:/usr/local/go/bin/"
+export GO111MODULE="on"
