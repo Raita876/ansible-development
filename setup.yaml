@@ -5,6 +5,7 @@
     - bashrc
     - docker
     - editorconfig
+    - exa
     - go
     - goss
     - python
