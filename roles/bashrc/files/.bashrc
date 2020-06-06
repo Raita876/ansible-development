@@ -130,3 +130,8 @@ eval "$(pyenv init -)"
 
 # Rust
 . "${HOME}/.cargo/env"
+
+# Starship
+if [ -x "$(which starship)" ]; then
+    eval "$(starship init bash)"
+fi
