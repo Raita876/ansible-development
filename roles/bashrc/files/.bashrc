@@ -128,6 +128,10 @@ export GO111MODULE="on"
 export PATH="${PATH}:${HOME}/.pyenv/bin"
 eval "$(pyenv init -)"
 
+# Poetry
+export PATH="${HOME}/.poetry/bin:${PATH}"
+source "${HOME}/.poetry/env"
+
 # Rust
 . "${HOME}/.cargo/env"
 
