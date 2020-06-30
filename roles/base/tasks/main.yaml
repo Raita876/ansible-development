@@ -12,7 +12,6 @@
       - tar
       - zip
       - unzip
-      - unzip
       - bzip2
       - tree
       - git
@@ -25,3 +24,6 @@
       - stress
       - ansible
       - htop
+      - g++
+      - gcc
+      - make
