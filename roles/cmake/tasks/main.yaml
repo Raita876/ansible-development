@@ -1,0 +1,21 @@
+---
+- name: add apt key
+  become: yes
+  apt_key:
+    url: https://apt.kitware.com/keys/kitware-archive-latest.asc
+    state: present
+
+- name: add apt repository
+  become: yes
+  apt_repository:
+    repo: deb https://apt.kitware.com/ubuntu/ bionic main
+    filename: cmake
+    state: present
+
+- name: install cmake
+  become: yes
+  apt:
+    name: cmake
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
