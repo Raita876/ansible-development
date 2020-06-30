@@ -12,6 +12,7 @@
     - httpd
     - poetry
     - python
+    - conan
     - rust
     - starship
     - sysstat

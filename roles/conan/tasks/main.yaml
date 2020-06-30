@@ -1,0 +1,6 @@
+---
+- name: install conan
+  pip:
+    executable: "{{ ansible_user_dir }}/.pyenv/shims/pip3"
+    name: conan
+    state: present
