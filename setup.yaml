@@ -9,6 +9,7 @@
     - exa
     - go
     - goss
+    - httpd
     - poetry
     - python
     - rust
