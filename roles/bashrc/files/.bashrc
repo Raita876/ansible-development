@@ -139,3 +139,6 @@ source "${HOME}/.poetry/env"
 if [ -x "$(which starship)" ]; then
     eval "$(starship init bash)"
 fi
+
+# Direnv
+eval "$(direnv hook bash)"
