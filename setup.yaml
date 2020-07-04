@@ -4,6 +4,7 @@
     - base
     - bashrc
     - cmake
+    - direnv
     - docker
     - editorconfig
     - exa
