@@ -2,7 +2,7 @@
 - name: download go
   become: yes
   get_url:
-    url: https://dl.google.com/go/go1.14.3.linux-amd64.tar.gz
+    url: https://golang.org/dl/go1.15.2.linux-amd64.tar.gz
     dest: /var/tmp/go.linux-amd64.tar.gz
 
 - name: unarchive go.tar.gz
