@@ -1,0 +1,12 @@
+---
+- name: install node
+  become: yes
+  apt:
+    state: present
+    name: "{{ packages }}"
+    update_cache: yes
+    cache_valid_time: "3600"
+  vars:
+    packages:
+      - nodejs
+      - npm

@@ -11,6 +11,7 @@
     - go
     - goss
     - httpd
+    - node
     - poetry
     - python
     - conan
