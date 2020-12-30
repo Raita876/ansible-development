@@ -5,3 +5,5 @@
     url: https://github.com/aelsabbahy/goss/releases/download/v0.3.13/goss-linux-amd64
     dest: /usr/local/bin/goss
     mode: 0755
+  tags:
+    - goss

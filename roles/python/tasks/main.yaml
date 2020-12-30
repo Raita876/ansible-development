@@ -21,11 +21,15 @@
       - zlib1g-dev
       - uuid-dev
       - tk-dev
+  tags:
+    - python
 
 - name: install pyenv
   git:
     repo: https://github.com/pyenv/pyenv.git
     dest: "{{ pyenv_root }}"
+  tags:
+    - python
 
 - name: install python
   shell: |
@@ -36,3 +40,5 @@
     PYTHON_CONFIGURE_OPTS: --enable-shared
     PATH: "{{ pyenv_root }}/bin:{{ ansible_env.PATH }}"
   changed_when: false
+  tags:
+    - python

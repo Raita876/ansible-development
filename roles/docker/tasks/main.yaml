@@ -13,18 +13,24 @@
       - curl
       - gnupg2
       - software-properties-common
+  tags:
+    - docker
 
 - name: apt-key add
   become: yes
   apt_key:
     url: "https://download.docker.com/linux/ubuntu/gpg"
     state: present
+  tags:
+    - docker
 
 - name: set stable docker repository
   become: yes
   apt_repository:
     repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
     state: present
+  tags:
+    - docker
 
 - name: install docker
   become: yes
@@ -33,6 +39,8 @@
     state: present
     update_cache: yes
     cache_valid_time: "3600"
+  tags:
+    - docker
 
 - name: add user to docker group
   become: yes
@@ -41,6 +49,8 @@
     append: yes
     groups:
       - docker
+  tags:
+    - docker
 
 - name: start docker
   become: yes
@@ -48,6 +58,8 @@
     name: docker
     state: started
     enabled: yes
+  tags:
+    - docker
 
 - name: download docker-compose
   become: yes
@@ -55,3 +67,5 @@
     url: https://github.com/docker/compose/releases/download/1.25.4/docker-compose-Linux-x86_64
     dest: /usr/local/bin/docker-compose
     mode: 0755
+  tags:
+    - docker
