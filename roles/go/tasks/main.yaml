@@ -1,17 +1,9 @@
 ---
-- name: download go
-  become: yes
-  get_url:
-    url: https://golang.org/dl/go1.15.2.linux-amd64.tar.gz
-    dest: /var/tmp/go.linux-amd64.tar.gz
-  tags:
-    - go
-
-- name: unarchive go.tar.gz
+- name: install go
   become: yes
   unarchive:
-    src: /var/tmp/go.linux-amd64.tar.gz
-    dest: /usr/local/
+    src: https://golang.org/dl/go1.15.6.linux-amd64.tar.gz
+    dest: /usr/local
     remote_src: yes
   tags:
     - go
