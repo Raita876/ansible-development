@@ -5,14 +5,14 @@
     state: present
     name: sysstat
   tags:
-    sysstat
+    - sysstat
 
 - name: edit sysstat file
   become: yes
   shell: 'echo ENABLED="true" > /etc/default/sysstat'
   changed_when: false
   tags:
-    sysstat
+    - sysstat
 
 - name: start sysstat
   become: yes
@@ -21,4 +21,4 @@
     enabled: yes
     state: started
   tags:
-    sysstat
+    - sysstat

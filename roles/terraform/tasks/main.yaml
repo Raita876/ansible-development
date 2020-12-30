@@ -6,4 +6,4 @@
     dest: /usr/local/bin/
     remote_src: yes
   tags:
-    terraform
+    - terraform

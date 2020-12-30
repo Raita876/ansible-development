@@ -5,4 +5,4 @@
     name: conan
     state: present
   tags:
-    conan
+    - conan
