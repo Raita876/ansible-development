@@ -9,4 +9,3 @@
     group: "{{ ansible_user_id }}"
   tags:
     - bashrc
-  
