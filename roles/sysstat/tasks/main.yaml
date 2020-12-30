@@ -4,11 +4,15 @@
   apt:
     state: present
     name: sysstat
+  tags:
+    - sysstat
 
 - name: edit sysstat file
   become: yes
   shell: 'echo ENABLED="true" > /etc/default/sysstat'
   changed_when: false
+  tags:
+    - sysstat
 
 - name: start sysstat
   become: yes
@@ -16,3 +20,5 @@
     name: sysstat
     enabled: yes
     state: started
+  tags:
+    - sysstat

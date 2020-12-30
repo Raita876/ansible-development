@@ -4,6 +4,8 @@
   apt_key:
     url: https://apt.kitware.com/keys/kitware-archive-latest.asc
     state: present
+  tags:
+    - cmake
 
 - name: add apt repository
   become: yes
@@ -11,6 +13,8 @@
     repo: deb https://apt.kitware.com/ubuntu/ focal main
     filename: cmake
     state: present
+  tags:
+    - cmake
 
 - name: install cmake
   become: yes
@@ -19,3 +23,5 @@
     state: present
     update_cache: yes
     cache_valid_time: 3600
+  tags:
+    - cmake

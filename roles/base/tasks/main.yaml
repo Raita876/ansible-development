@@ -27,3 +27,5 @@
       - g++
       - gcc
       - make
+  tags:
+    - base
