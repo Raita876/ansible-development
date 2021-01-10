@@ -3,7 +3,8 @@
   roles:
     - base
     - bashrc
-    # - cmake
+    - caddy
+    - cmake
     - direnv
     - docker
     - editorconfig
