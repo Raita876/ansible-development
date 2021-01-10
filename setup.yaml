@@ -16,6 +16,7 @@
     - python
     - conan
     - rust
+    - shfmt
     - starship
     - sysstat
     - terraform
