@@ -9,6 +9,7 @@
     - docker
     - editorconfig
     - exa
+    - fcgi
     - go
     - goss
     - httpd
