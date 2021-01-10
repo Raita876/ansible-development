@@ -1,9 +1,9 @@
-UBUNTU_BOX = ubuntu/bionic64
-
+export ANSIBLE_DEV_UBUNTU_BOX ?= ubuntu/focal64
+export ANSIBLE_DEV_DISK_SIZE ?= 100GB
 
 .PHONY: add
 add: ## Add Box
-	vagrant box add $(UBUNTU_BOX)
+	vagrant box add $(ANSIBLE_DEV_UBUNTU_BOX)
 
 .PHONY: up
 up: ## Start virtual machine
