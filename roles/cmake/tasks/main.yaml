@@ -13,6 +13,7 @@
     repo: deb https://apt.kitware.com/ubuntu/ focal main
     filename: cmake
     state: present
+    update_cache: yes
   tags:
     - cmake
 
